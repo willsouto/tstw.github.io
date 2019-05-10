@@ -1,0 +1,43 @@
+<html>
+<head>
+  <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+  <title>PAGINA DE TESTE</title>
+</head>
+<body>
+<div style="text-align: center;">PÁGINA DE TESTE<br>
+
+<link rel="stylesheet" href="https://xwc-negocieonline.xgen.com.br/mobly/assets/css/chat-ativo.css" />
+<script language="javascript" src="https://xwc-negocieonline.xgen.com.br/mobly/assets/js/plugins.js" type="text/javascript" charset="UTF-8"></script>
+<script language="javascript" src="https://xwc-negocieonline.xgen.com.br/mobly/assets/js/xwc-Invite.js" type="text/javascript" charset="UTF-8"></script>
+<script language="javascript" type="text/javascript" charset="UTF-8">
+ 
+			$(document).ready(function () { 
+ 
+ //*****  Chat ativo - Invite - Incluir o script xwcInvite *****/
+            try {
+                //Define o html da janela do Chat Ativo
+                var SplashWindowInvite = '';
+                SplashWindowInvite += ' <div id="splash_interno">';
+                SplashWindowInvite += '<div id="xwc_balao" onclick="javascript:WorkCenter._fwc_OpenChatInvite();">';
+                SplashWindowInvite += '<a id="xwc_bot_sair" onclick="javascript:WorkCenter._fwc_StopMonitor();" title="Sair do Atendimento">&#10005;</a>';
+                SplashWindowInvite += '<h1>Olá, está com dúvidas?<br />Podemos te ajudar:</h1>';
+                SplashWindowInvite += '<div><a onclick="javascript:WorkCenter._fwc_OpenChatInvite();" title="Iniciar o atendimento"  id="xwc_bot_fale">Fale Agora</a></div>';
+                SplashWindowInvite += '</div>';
+                WorkCenter._setCustomerName("Novo Visitante"); //Seta o nome do Cliente
+                WorkCenter._setCustomerEmail("visitante@mobly.com"); //Seta o email do cliente. Parametro (opcional)
+                WorkCenter._setCustomerFone(""); //Seta o telefone do cliente. Parametro (opcional)
+                WorkCenter._setCustomerKey(""); //Seta a Chave[key] do cliente para utilizar no Client do Workcenter na Tela de monitoracao, informacao no campo Identificacao.  Parametro (opcional)
+                WorkCenter._setLanguage("PT"); //Seta o idioma do canal de atendimento
+
+                WorkCenter.setCallType("VENDAS_INVASOR");//Segmento para onde será direcionado o chat
+                WorkCenter.setHtmlSplash(SplashWindowInvite);//Seta o html do chat ativo
+                WorkCenter.setApplication("https://xwc-negocieonline.xgen.com.br/mobly/mobly.dll"); //Endereço da DLL do cliente
+                WorkCenter._start(); //Inicia a apresentação do pop-up do chat ativo no portal do cliente
+            } catch (err) { alert(err); }
+
+            //***** FIM - Chat ativo - Invite ***** /
+});
+</script>
+    
+</body>
+</html>
